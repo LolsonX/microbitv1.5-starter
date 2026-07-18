@@ -120,3 +120,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### SDK
 
 The nRF5 SDK (v10.0.0) included in `microbit/nrf51sdk1000dc26b5e/` is property of Nordic Semiconductor ASA and licensed under a BSD 3-clause license. See the copyright headers in individual SDK source files for details.
+
+### LLMs
+
+LLMs were used in creating this project - mostly to scan and modify files after giving them explanaiton of problem.
