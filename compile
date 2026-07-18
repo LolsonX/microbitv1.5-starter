@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+cd "$(dirname "$0")"
+
+cmake -B build -DCMAKE_TOOLCHAIN_FILE=microbit/cmake/toolchain/arm-none-eabi-gcc.cmake > /dev/null 2>&1
+
+if ! cmake --build build > /dev/null 2>&1; then
+    cmake --build build
+    exit 1
+fi
+
+echo "Build complete. Flash with:"
+echo "  cp bin/app.hex /media/\$USER/MICROBIT/"

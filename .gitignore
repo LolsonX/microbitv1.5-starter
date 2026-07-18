@@ -1,0 +1,12 @@
+build/
+bin/
+.cache/
+*.o
+*.d
+*.elf
+*.hex
+*.bin
+*.map
+.vscode/
+.idea/
+__pycache__/
