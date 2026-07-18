@@ -83,14 +83,14 @@ nrf_delay_us(100);
 ### Pin Definitions
 
 ```c
-PIN_BTN_A   // P0.17
-PIN_BTN_B   // P0.26
-PIN_ROW1-3  // P0.13-P0.15
-PIN_COL1-9  // P0.04-P0.12
-PIN_SCL     // P0.00
-PIN_SDA     // P0.30
-PIN_TX      // P0.24
-PIN_RX      // P0.25
+BTN_A   // P0.17
+BTN_B   // P0.26
+ROW1-3  // P0.13-P0.15
+COL1-9  // P0.04-P0.12
+SCL     // P0.00
+SDA     // P0.30
+TX      // P0.24
+RX      // P0.25
 ```
 
 ## Hardware

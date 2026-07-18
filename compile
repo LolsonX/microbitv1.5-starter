@@ -3,12 +3,39 @@ set -e
 
 cd "$(dirname "$0")"
 
-cmake -B build -DCMAKE_TOOLCHAIN_FILE=microbit/cmake/toolchain/arm-none-eabi-gcc.cmake > /dev/null 2>&1
+cmake -B build -DCMAKE_TOOLCHAIN_FILE=microbit/cmake/toolchain/arm-none-eabi-gcc.cmake >/dev/null 2>&1
 
-if ! cmake --build build > /dev/null 2>&1; then
-    cmake --build build
-    exit 1
+if ! cmake --build build >/dev/null 2>&1; then
+  cmake --build build
+  exit 1
 fi
 
-echo "Build complete. Flash with:"
-echo "  cp bin/app.hex /media/\$USER/MICROBIT/"
+echo "Build complete. Flashing:"
+# echo "  cp bin/app.hex /media/\$USER/MICROBIT/"
+
+HEX="bin/app.hex"
+
+DEVICE=$(lsblk -nr -o PATH,LABEL | awk '$2=="MICROBIT"{print $1; exit}')
+
+if [ -z "$DEVICE" ]; then
+  echo "micro:bit not found"
+  exit 1
+fi
+
+udisksctl mount -b "$DEVICE" >/dev/null
+
+MOUNT=$(findmnt -rn -S "$DEVICE" -o TARGET)
+
+if [ -z "$MOUNT" ]; then
+  echo "Failed to determine mount point"
+  exit 1
+fi
+
+echo "Flashing to $MOUNT"
+
+cp "$HEX" "$MOUNT/"
+sync
+
+udisksctl unmount -b "$DEVICE" >/dev/null
+
+echo "Flashed"
