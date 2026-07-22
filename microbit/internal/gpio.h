@@ -11,3 +11,6 @@
      (GPIO_PIN_CNF_PULL_Pulldown << GPIO_PIN_CNF_PULL_Pos))
 
 void GPIO_config_pullup(int pin);
+void GPIO_config_output(int pin);
+void GPIO_unset_pin(int pin);
+void GPIO_write_pin(int pin, int value);

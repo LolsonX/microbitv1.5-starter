@@ -27,6 +27,7 @@ add_library(microbit STATIC
     internal/gpio.c
     internal/syscalls.c
     internal/i2c.c
+    internal/pwm.c
     ${SDK_SOURCES}
 )
 
