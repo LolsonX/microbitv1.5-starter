@@ -20,9 +20,13 @@ set(SDK_SOURCES
 add_library(microbit STATIC
     internal/microbit_startup.s
     internal/board.c
+    internal/delay.c
+    internal/lcd.c
     internal/display.c
     internal/buttons.c
+    internal/gpio.c
     internal/syscalls.c
+    internal/i2c.c
     ${SDK_SOURCES}
 )
 

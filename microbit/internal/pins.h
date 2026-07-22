@@ -41,8 +41,8 @@
 #define BTN_A P5
 #define BTN_B P11
 
-#define I2C_SCL   0
-#define I2C_SDA   30
+#define I2C_SCL   30
+#define I2C_SDA   0
 
 #define ACCELEROMETR_SCL 19
 #define ACCELEROMETR_SCK 20
